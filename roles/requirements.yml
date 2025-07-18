@@ -14,8 +14,8 @@
 
 roles:
   # Web Server
-  - name: geerlingguy.apache
+  #- name: geerlingguy.apache
   # Application Server
-  - name: geerlingguy.tomcat6
+  #- name: geerlingguy.tomcat6
   # Database Server
-  - name: geerlingguy.postgresql
+  #- name: geerlingguy.postgresql

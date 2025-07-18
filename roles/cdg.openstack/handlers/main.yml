@@ -1,0 +1,4 @@
+---
+# handlers file for cdg.openstack
+- name: Reboot
+  ansible.builtin.reboot:

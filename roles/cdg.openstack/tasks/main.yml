@@ -1,0 +1,29 @@
+---
+# tasks file for cdg.openstack
+- name: Upgrade all packages
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+  notify:
+    - Reboot
+
+- name: Install OpenStack
+  ansible.builtin.dnf:
+    name:  "{{package.name  | default('') }}"
+    state: "{{package.state | default('present') }}"
+  loop: "{{ openstack_packages | default([])}}"
+  loop_control:
+    loop_var: "package"
+
+- name: OpenStack Config File
+  ansible.builtin.template:
+    src:   "{{ openstack_answers.src   | default('answers.j2') }}"
+    dest:  "{{ openstack_answers.dest  | default('/tmp/answers.txt') }}" 
+    owner: "{{ openstack_answers.owner | default('root') }}" 
+    group: "{{ openstack_answers.group | default('wheel') }}" 
+    mode:  "{{ openstack_answers.mode  | default('u=rw,g=r,o=r') }}"  
+
+- name: OpenStack Installation
+  command:
+    cmd: "nohup packstack --answer-file {{ openstack_answers.dest  | default('/tmp/answers.txt') }} &"
+
