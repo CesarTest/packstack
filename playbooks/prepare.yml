@@ -1,0 +1,37 @@
+- name: Set a hostname |{{server_hostname| default('host')}}|
+  hostname:
+     name: "{{server_hostname| default('host')}}"
+   
+- name: Install Centos Repos
+  ansible.builtin.dnf:
+    name:  "{{package.name   | default('') }}"
+    state: "{{package.state | default('present') }}"
+  loop: "{{ server_repositories | default([])}}"
+  loop_control:
+    loop_var: "package"
+    
+- name: Enable Centos Repos
+  community.general.dnf_config_manager:
+    name:  "{{repo.name   | default('') }}"
+    state: "{{repo.state | default('present') }}"
+  loop: "{{ server_dnf_config_manager | default([])}}"
+  loop_control:
+    loop_var: "repo"        
+
+- name: 'Enable/Disable Server Services'
+  ignore_errors: yes
+  service:
+    name:   "{{ server_service.name }}"
+    state:  "{{ server_service.state | default('stopped') }}" 
+    enabled: "{{ server_service.state | bool }}" 
+  loop: "{{ server_services | default([]) }}"
+  loop_control:
+    loop_var: "server_service"
+  when: 
+    - "server_services is defined"
+    - "server_services is not none"
+    - "server_services is not string"
+    - "server_services is not mapping"
+    - "server_service.name is defined"
+    - "server_service.name is not none"
+    - "server_service.name is string"  

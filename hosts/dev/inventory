@@ -1,0 +1,12 @@
+all:
+   hosts:
+     openstack.centos.com:
+       ansible_host: 192.168.1.100
+       ansible_ssh_common_args: -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
+       ansible_user: ansible
+       ansible_become: true
+       ansible_become_pass: ansible 
+   children:
+     openstack:
+       hosts:
+         openstack.centos.com:

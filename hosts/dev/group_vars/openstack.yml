@@ -1,0 +1,117 @@
+---
+# -- Server Properties
+server_hostname: openstack-test
+server_repositories:
+  - name: https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/centos-stream-repos-9.0-28.el9.noarch.rpm  
+    state: present
+  - name: 
+      - epel-release 
+      - epel-next-release  
+    state: present
+    
+server_dnf_config_manager:
+  - name: 
+     - crb
+    state: enabled
+  
+server_services:
+  - name: "firewalld"
+    enabled: no 
+    state: "stopped"
+    
+# -- MAC: Mandatory Access Control
+selinux_all_purge: true
+selinux_policy: targeted
+selinux_state: permissive
+
+# -- Storage Properties for OpenStack Installation
+storage_pools:
+  -  name: cinder-volumes
+     disks: 
+      - sda
+      - sdb
+
+# -- OpenStack Properties    
+openstack_default_host_ip: "192.168.1.100"
+openstack_packages:
+  - name: centos-release-openstack-epoxy
+    state: latest
+  - name: openstack-packstack
+    state: latest
+  - name: 
+      - lvm2
+    state: latest   
+
+openstack_answers:
+  src: answer.j2
+  dest: /tmp/answers.txt
+  owner: root 
+  group: wheel 
+  mode: 'u=rw,g=r,o=r'    
+  
+openstack_packstack_options: 
+   components:
+      client: y
+      mariadb: y
+      glance: y
+      cinder: y
+      manila: n
+      nova: y
+      neutron: y
+      horizon: y
+      swift: y
+      ceilometer: y
+      aodh: y
+      heat: y
+      magnum: n
+      trove: n
+      ironic: n
+      vmware_backend: m
+      heat_cfn: n    
+      
+   hosts: 
+      controller: "{{openstack_default_host_ip}}"
+      compute:    "{{openstack_default_host_ip}}"
+      network:    "{{openstack_default_host_ip}}"
+      ntp:        "0.europe.pool.ntp.org"
+      exclude:
+      vcenter:      
+   
+   defaults:
+      password: "cesar"
+      ssh_key: "/root/.ssh/id_rsa.pub"
+   
+   cinder:
+      db_pw: af0fdc2652204e83
+      db_purge_enable: true
+      ks_pw: 820779c187fc46f8
+      backend: lvm
+      volumes_create: n
+      volume_name: cinder-volumes
+      volumes_size: 20G
+      nfs_mounts: 
+      #netapp:
+      #  login:
+      #  password:
+      #  hostname:
+      #  server_port: 80       
+      #  storage_family: ontap_cluster
+      #  transport_type: http      
+      #  storage_protocol: nfs
+      #  size_multiplier: 1.0
+      #  expiry_thres_minutes: 720
+      #  thres_avl_size_perc_start: 20
+      #  thres_avl_size_perc_stop: 60
+      #  nfs_shares:
+      #  nfs_shares_config: /etc/cinder/shares.conf
+      #  volume_list:
+      #  vfiler:
+      #  partner_backend_name:
+      #  vserver:
+      #  controller_ips:
+      #  sa_password:
+      #  eseries_host_type: linux_dm_mp
+      #  webservice_path: /devmgr/v2
+      #  storage_pools:
+      #  nfs_shares_config:        
+      #  volume_list:
