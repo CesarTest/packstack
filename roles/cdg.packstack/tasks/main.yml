@@ -1,5 +1,8 @@
 ---
-- name: Test Installation 
+- name: Validations
+  include_tasks: "assert.yml" 
+  
+- name: "Test Installation |{{openstack_dashboard|default('')}}|" 
   ignore_errors: yes
   ansible.builtin.uri:
     url: "{{openstack_dashboard|default('')}}"

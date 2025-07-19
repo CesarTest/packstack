@@ -1,10 +1,10 @@
-- name: Wait for port 80 to become open on the host, don't start checking for 10 seconds
+- name: "Wait for port 80 to become open on |{{packstack_default_host_ip| default(omit)}}|, don't start checking for 10 seconds"
   ansible.builtin.wait_for:
     host: "{{packstack_default_host_ip| default(omit)}}"
     port: 80
     delay: 10
 
-- name: Test Installation
+- name: "Test Installation |{{openstack_dashboard|default('')}}|"
   ansible.builtin.uri:
     url: "{{openstack_dashboard|default('')}}"
     method: "POST"

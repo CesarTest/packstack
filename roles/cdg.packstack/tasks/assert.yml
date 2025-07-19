@@ -1,0 +1,6 @@
+- name: assert | Test RedHat Distribution
+  ansible.builtin.assert:
+    that:
+      - ansible_os_family is defined
+      - ansible_os_family == "RedHat"
+    quiet: true
