@@ -1,23 +1,9 @@
+# ---> Hostname
 - name: Set a hostname |{{server_hostname| default('host')}}|
   hostname:
      name: "{{server_hostname| default('host')}}"
-   
-- name: Install Centos Repos
-  ansible.builtin.dnf:
-    name:  "{{package.name   | default('') }}"
-    state: "{{package.state | default('present') }}"
-  loop: "{{ server_repositories | default([])}}"
-  loop_control:
-    loop_var: "package"
-    
-- name: Enable Centos Repos
-  community.general.dnf_config_manager:
-    name:  "{{repo.name   | default('') }}"
-    state: "{{repo.state | default('present') }}"
-  loop: "{{ server_dnf_config_manager | default([])}}"
-  loop_control:
-    loop_var: "repo"        
 
+# ---> Services
 - name: 'Enable/Disable Server Services'
   ignore_errors: yes
   service:
@@ -35,3 +21,4 @@
     - "server_service.name is defined"
     - "server_service.name is not none"
     - "server_service.name is string"  
+

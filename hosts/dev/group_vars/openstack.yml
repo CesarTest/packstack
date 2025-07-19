@@ -13,7 +13,7 @@ server_dnf_config_manager:
   - name: 
      - crb
     state: enabled
-  
+    
 server_services:
   - name: "firewalld"
     enabled: no 
@@ -31,9 +31,10 @@ storage_pools:
       - sda
       - sdb
 
-# -- OpenStack Properties    
-openstack_default_host_ip: "192.168.1.100"
-openstack_packages:
+# -- PackStack Properties: Single Node OpenStack Installation
+packstack_default_host_ip: "192.168.1.100"
+openstack_dashboard: "http://{{packstack_default_host_ip}}/dashboard/auth/login/?next=/dashboard/"
+packstack_packages:
   - name: centos-release-openstack-epoxy
     state: latest
   - name: openstack-packstack
@@ -42,14 +43,14 @@ openstack_packages:
       - lvm2
     state: latest   
 
-openstack_answers:
+packstack_answers:
   src: answer.j2
   dest: /tmp/answers.txt
   owner: root 
   group: wheel 
   mode: 'u=rw,g=r,o=r'    
   
-openstack_packstack_options: 
+packstack_options: 
    components:
       client: y
       mariadb: y

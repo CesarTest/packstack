@@ -1,0 +1,24 @@
+---
+- name: Test Installation 
+  ignore_errors: yes
+  ansible.builtin.uri:
+    url: "{{openstack_dashboard|default('')}}"
+    method: "POST"
+    body_format: "form-urlencoded"
+    body:
+    - [ name, 'admin' ]
+    - [ password, "{{packstack_options.defaults.password|default('')}}" ]
+    - [ enter, 'Sign in' ]
+    status_code: "302"
+  register: "_login"
+
+- name: Install OpenStack
+  include_tasks: install.yml 
+  when:
+    - "login is defined"
+    - "login.status is defined"
+    - "login.status == 302"
+
+- name: Wait for installation to finish
+  include_tasks: test.yml
+

@@ -1,12 +1,12 @@
 {
     "_ansible_facts_gathered": true,
     "ansible_all_ipv4_addresses": [
-        "169.254.0.2",
-        "192.168.1.100"
+        "192.168.1.100",
+        "169.254.0.2"
     ],
     "ansible_all_ipv6_addresses": [
-        "fe80::60bd:d9d1:227c:5129",
-        "fe80::eef4:bbff:fec1:271d"
+        "fe80::eef4:bbff:fec1:271d",
+        "fe80::60bd:d9d1:227c:5129"
     ],
     "ansible_apparmor": {
         "status": "disabled"
@@ -35,24 +35,24 @@
         "root": "/dev/mapper/cs-root"
     },
     "ansible_date_time": {
-        "date": "2025-07-17",
-        "day": "17",
-        "epoch": "1752773099",
-        "epoch_int": "1752773099",
-        "hour": "19",
-        "iso8601": "2025-07-17T17:24:59Z",
-        "iso8601_basic": "20250717T192459268090",
-        "iso8601_basic_short": "20250717T192459",
-        "iso8601_micro": "2025-07-17T17:24:59.268090Z",
-        "minute": "24",
+        "date": "2025-07-19",
+        "day": "19",
+        "epoch": "1752910369",
+        "epoch_int": "1752910369",
+        "hour": "09",
+        "iso8601": "2025-07-19T07:32:49Z",
+        "iso8601_basic": "20250719T093249170033",
+        "iso8601_basic_short": "20250719T093249",
+        "iso8601_micro": "2025-07-19T07:32:49.170033Z",
+        "minute": "32",
         "month": "07",
-        "second": "59",
-        "time": "19:24:59",
+        "second": "49",
+        "time": "09:32:49",
         "tz": "CEST",
         "tz_dst": "CEST",
         "tz_offset": "+0200",
-        "weekday": "jueves",
-        "weekday_number": "4",
+        "weekday": "s\u00e1bado",
+        "weekday_number": "6",
         "weeknumber": "28",
         "year": "2025"
     },
@@ -113,12 +113,31 @@
                 "scsi-SDELL_PERC_H710_0080d92718bf382a2b0009e8e960f681-part3",
                 "wwn-0x6c81f660e9e809002b2a38bf1827d980-part3"
             ],
+            "sdd": [
+                "usb-USB_SanDisk_3.2Gen1_0501604479bbd97bdd6c9973c993103832ac820f5d54d3a38794c426eb9ddd313a4000000000000000000000c071b4bcff85181081558107a7ad5162-0:0"
+            ],
+            "sdd1": [
+                "usb-USB_SanDisk_3.2Gen1_0501604479bbd97bdd6c9973c993103832ac820f5d54d3a38794c426eb9ddd313a4000000000000000000000c071b4bcff85181081558107a7ad5162-0:0-part1"
+            ],
             "sr0": [
                 "ata-TSSTcorp_DVD-ROM_SU-108CB_S10I6YIF1002DQ"
             ]
         },
         "labels": {},
         "masters": {
+            "dm-2": [
+                "dm-4"
+            ],
+            "dm-3": [
+                "dm-4"
+            ],
+            "sda": [
+                "dm-2",
+                "dm-3"
+            ],
+            "sdb": [
+                "dm-3"
+            ],
             "sdc3": [
                 "dm-0",
                 "dm-1"
@@ -131,11 +150,17 @@
             "dm-1": [
                 "288c4b7f-90b5-4d4d-9dfb-6ac59aaa7c14"
             ],
+            "loop0": [
+                "a7594c4d-e71f-498a-813a-daa14d2d7196"
+            ],
             "sdc1": [
                 "B8E6-B0B1"
             ],
             "sdc2": [
                 "2b16bd92-f20d-4fc2-af60-c3e025146a91"
+            ],
+            "sdd1": [
+                "d1083e3d-0d19-41f3-bfbf-9717905db78e"
             ]
         }
     },
@@ -198,8 +223,114 @@
             "vendor": null,
             "virtual": 1
         },
-        "sda": {
+        "dm-2": {
+            "holders": [
+                "cinder--volumes-cinder--volumes--pool"
+            ],
+            "host": "",
+            "links": {
+                "ids": [],
+                "labels": [],
+                "masters": [
+                    "dm-4"
+                ],
+                "uuids": []
+            },
+            "model": null,
+            "partitions": {},
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "",
+            "sectors": "204800",
+            "sectorsize": "512",
+            "serial": "006e977f1e29392a2b0009e8e960f681",
+            "size": "100.00 MB",
+            "support_discard": "512",
+            "vendor": null,
+            "virtual": 1
+        },
+        "dm-3": {
+            "holders": [
+                "cinder--volumes-cinder--volumes--pool"
+            ],
+            "host": "",
+            "links": {
+                "ids": [],
+                "labels": [],
+                "masters": [
+                    "dm-4"
+                ],
+                "uuids": []
+            },
+            "model": null,
+            "partitions": {},
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "",
+            "sectors": "3338076160",
+            "sectorsize": "512",
+            "size": "1.55 TB",
+            "support_discard": "512",
+            "vendor": null,
+            "virtual": 1
+        },
+        "dm-4": {
             "holders": [],
+            "host": "",
+            "links": {
+                "ids": [],
+                "labels": [],
+                "masters": [],
+                "uuids": []
+            },
+            "model": null,
+            "partitions": {},
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "",
+            "sectors": "3338076160",
+            "sectorsize": "512",
+            "size": "1.55 TB",
+            "support_discard": "512",
+            "vendor": null,
+            "virtual": 1
+        },
+        "loop0": {
+            "holders": [],
+            "host": "",
+            "links": {
+                "ids": [],
+                "labels": [],
+                "masters": [],
+                "uuids": [
+                    "a7594c4d-e71f-498a-813a-daa14d2d7196"
+                ]
+            },
+            "model": null,
+            "partitions": {},
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "none",
+            "sectors": "4194304",
+            "sectorsize": "512",
+            "size": "2.00 GB",
+            "support_discard": "4096",
+            "vendor": null,
+            "virtual": 1
+        },
+        "sda": {
+            "holders": [
+                "cinder--volumes-cinder--volumes--pool_tmeta",
+                "cinder--volumes-cinder--volumes--pool_tdata"
+            ],
             "host": "RAID bus controller: Broadcom / LSI MegaRAID SAS 2208 [Thunderbolt] (rev 05)",
             "links": {
                 "ids": [
@@ -209,7 +340,10 @@
                     "wwn-0x6c81f660e9e809002b2a39291e7f976e"
                 ],
                 "labels": [],
-                "masters": [],
+                "masters": [
+                    "dm-2",
+                    "dm-3"
+                ],
                 "uuids": []
             },
             "model": "PERC H710",
@@ -229,7 +363,9 @@
             "wwn": "0x6c81f660e9e809002b2a39291e7f976e"
         },
         "sdb": {
-            "holders": [],
+            "holders": [
+                "cinder--volumes-cinder--volumes--pool_tdata"
+            ],
             "host": "RAID bus controller: Broadcom / LSI MegaRAID SAS 2208 [Thunderbolt] (rev 05)",
             "links": {
                 "ids": [
@@ -239,7 +375,9 @@
                     "wwn-0x6c81f660e9e809002b2a38e01a275195"
                 ],
                 "labels": [],
-                "masters": [],
+                "masters": [
+                    "dm-3"
+                ],
                 "uuids": []
             },
             "model": "PERC H710",
@@ -352,6 +490,51 @@
             "vendor": "DELL",
             "virtual": 1,
             "wwn": "0x6c81f660e9e809002b2a38bf1827d980"
+        },
+        "sdd": {
+            "holders": [],
+            "host": "USB controller: Intel Corporation C600/X79 series chipset USB2 Enhanced Host Controller #2 (rev 05)",
+            "links": {
+                "ids": [
+                    "usb-USB_SanDisk_3.2Gen1_0501604479bbd97bdd6c9973c993103832ac820f5d54d3a38794c426eb9ddd313a4000000000000000000000c071b4bcff85181081558107a7ad5162-0:0"
+                ],
+                "labels": [],
+                "masters": [],
+                "uuids": []
+            },
+            "model": "SanDisk 3.2Gen1",
+            "partitions": {
+                "sdd1": {
+                    "holders": [],
+                    "links": {
+                        "ids": [
+                            "usb-USB_SanDisk_3.2Gen1_0501604479bbd97bdd6c9973c993103832ac820f5d54d3a38794c426eb9ddd313a4000000000000000000000c071b4bcff85181081558107a7ad5162-0:0-part1"
+                        ],
+                        "labels": [],
+                        "masters": [],
+                        "uuids": [
+                            "d1083e3d-0d19-41f3-bfbf-9717905db78e"
+                        ]
+                    },
+                    "sectors": "240328672",
+                    "sectorsize": 512,
+                    "size": "114.60 GB",
+                    "start": "32",
+                    "uuid": "d1083e3d-0d19-41f3-bfbf-9717905db78e"
+                }
+            },
+            "removable": "1",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "mq-deadline",
+            "sectors": "240328704",
+            "sectorsize": "512",
+            "serial": "0501604479bbd97bdd6c",
+            "size": "114.60 GB",
+            "support_discard": "512",
+            "vendor": "USB",
+            "virtual": 1
         },
         "sr0": {
             "holders": [],
@@ -732,7 +915,7 @@
         "PWD": "/home/ansible",
         "SHELL": "/bin/bash",
         "SHLVL": "0",
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-pnftjsldcbylfswabixnnfuwxyocctqw ; /usr/bin/python3",
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-juwvuhoxhrpfewihibciafbxsyarzuar ; /usr/bin/python3",
         "SUDO_GID": "1000",
         "SUDO_UID": "1000",
         "SUDO_USER": "ansible",
@@ -839,14 +1022,14 @@
     },
     "ansible_interfaces": [
         "idrac",
-        "eno4",
-        "eno2",
         "eno1",
-        "eno3",
-        "lo"
+        "eno2",
+        "eno4",
+        "lo",
+        "eno3"
     ],
     "ansible_is_chroot": false,
-    "ansible_iscsi_iqn": "",
+    "ansible_iscsi_iqn": "iqn.1994-05.com.redhat:9b63c93754bf",
     "ansible_kernel": "5.14.0-598.el9.x86_64",
     "ansible_kernel_version": "#1 SMP PREEMPT_DYNAMIC Tue Jul 8 16:37:49 UTC 2025",
     "ansible_lo": {
@@ -937,9 +1120,9 @@
         "type": "loopback"
     },
     "ansible_loadavg": {
-        "15m": 0.16,
-        "1m": 0.62,
-        "5m": 0.35
+        "15m": 3.41,
+        "1m": 4.16,
+        "5m": 3.64
     },
     "ansible_local": {},
     "ansible_locally_reachable_ips": {
@@ -958,6 +1141,10 @@
     "ansible_lsb": {},
     "ansible_lvm": {
         "lvs": {
+            "cinder-volumes-pool": {
+                "size_g": "1591.72",
+                "vg": "cinder-volumes"
+            },
             "root": {
                 "size_g": "2507.66",
                 "vg": "cs"
@@ -969,12 +1156,12 @@
         },
         "pvs": {
             "/dev/sda": {
-                "free_g": "837.75",
+                "free_g": "83.58",
                 "size_g": "837.75",
                 "vg": "cinder-volumes"
             },
             "/dev/sdb": {
-                "free_g": "837.75",
+                "free_g": "0",
                 "size_g": "837.75",
                 "vg": "cinder-volumes"
             },
@@ -986,8 +1173,8 @@
         },
         "vgs": {
             "cinder-volumes": {
-                "free_g": "1675.49",
-                "num_lvs": "0",
+                "free_g": "83.58",
+                "num_lvs": "1",
                 "num_pvs": "2",
                 "size_g": "1675.49"
             },
@@ -1001,16 +1188,16 @@
     },
     "ansible_machine": "x86_64",
     "ansible_machine_id": "da2a6bf849d349f1a69c18697671a159",
-    "ansible_memfree_mb": 110392,
+    "ansible_memfree_mb": 97828,
     "ansible_memory_mb": {
         "nocache": {
-            "free": 111221,
-            "used": 876
+            "free": 99351,
+            "used": 12746
         },
         "real": {
-            "free": 110392,
+            "free": 97828,
             "total": 112097,
-            "used": 1705
+            "used": 14269
         },
         "swap": {
             "cached": 0,
@@ -1022,18 +1209,18 @@
     "ansible_memtotal_mb": 112097,
     "ansible_mounts": [
         {
-            "block_available": 651434098,
+            "block_available": 648549875,
             "block_size": 4096,
             "block_total": 657047084,
-            "block_used": 5612986,
+            "block_used": 8497209,
             "device": "/dev/mapper/cs-root",
             "fstype": "xfs",
-            "inode_available": 262836572,
+            "inode_available": 262738086,
             "inode_total": 262947200,
-            "inode_used": 110628,
+            "inode_used": 209114,
             "mount": "/",
             "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
-            "size_available": 2668274065408,
+            "size_available": 2656460288000,
             "size_total": 2691264856064,
             "uuid": "79ced7a6-6fea-4c5d-a705-9fc0ecb2a5fb"
         },
@@ -1068,6 +1255,22 @@
             "size_available": 620015616,
             "size_total": 627875840,
             "uuid": "B8E6-B0B1"
+        },
+        {
+            "block_available": 443245,
+            "block_size": 4096,
+            "block_total": 473562,
+            "block_used": 30317,
+            "device": "/dev/loop0",
+            "fstype": "ext4",
+            "inode_available": 131060,
+            "inode_total": 131072,
+            "inode_used": 12,
+            "mount": "/srv/node/swiftloopback",
+            "options": "rw,seclabel,noatime,nodiratime",
+            "size_available": 1815531520,
+            "size_total": 1939709952,
+            "uuid": "a7594c4d-e71f-498a-813a-daa14d2d7196"
         }
     ],
     "ansible_nodename": "openstack-test",
@@ -1212,7 +1415,7 @@
     "ansible_system_capabilities": [],
     "ansible_system_capabilities_enforced": "False",
     "ansible_system_vendor": "NA",
-    "ansible_uptime_seconds": 20985,
+    "ansible_uptime_seconds": 3757,
     "ansible_user_dir": "/root",
     "ansible_user_gecos": "root",
     "ansible_user_gid": 0,
@@ -1259,6 +1462,14 @@
             "vendor": "DELL",
             "wwn": "0x6c81f660e9e809002b2a38bf1827d980"
         },
+        "sdd": {
+            "model": "SanDisk 3.2Gen1",
+            "serial": "0501604479bbd97bdd6c9973c993103832ac820f5d54d3a38794c426eb9ddd313a4000000000000000000000c071b4bcff85181081558107a7ad5162",
+            "size": "114.60 GiB",
+            "size_bytes": 123048296448,
+            "type": "hdd",
+            "vendor": "USB"
+        },
         "sr0": {
             "model": "DVD-ROM SU-108CB",
             "serial": "S10I6YIF1002DQ",
@@ -1286,7 +1497,7 @@
         }
     },
     "facter_facterversion": "4.2.10",
-    "facter_filesystems": "vfat,xfs",
+    "facter_filesystems": "ext2,ext3,ext4,vfat,xfs",
     "facter_fips_enabled": false,
     "facter_identity": {
         "gid": 0,
@@ -1301,9 +1512,9 @@
     "facter_kernelrelease": "5.14.0-598.el9.x86_64",
     "facter_kernelversion": "5.14.0",
     "facter_load_averages": {
-        "15m": 0.16,
-        "1m": 0.62,
-        "5m": 0.35
+        "15m": 3.39,
+        "1m": 3.92,
+        "5m": 3.59
     },
     "facter_memory": {
         "swap": {
@@ -1316,13 +1527,13 @@
             "used_bytes": 0
         },
         "system": {
-            "available": "107.77 GiB",
-            "available_bytes": 115720237056,
-            "capacity": "1.55%",
+            "available": "95.98 GiB",
+            "available_bytes": 103054585856,
+            "capacity": "12.33%",
             "total": "109.47 GiB",
-            "total_bytes": 117542526976,
-            "used": "1.70 GiB",
-            "used_bytes": 1822289920
+            "total_bytes": 117542494208,
+            "used": "13.49 GiB",
+            "used_bytes": 14487908352
         }
     },
     "facter_networking": {
@@ -1467,6 +1678,25 @@
         }
     },
     "facter_partitions": {
+        "/dev/loop0": {
+            "backing_file": "/srv/loopback-device/swiftloopback",
+            "filesystem": "ext4",
+            "size": "2.00 GiB",
+            "size_bytes": 2147483648,
+            "uuid": "a7594c4d-e71f-498a-813a-daa14d2d7196"
+        },
+        "/dev/mapper/cinder--volumes-cinder--volumes--pool": {
+            "size": "1.55 TiB",
+            "size_bytes": 1709094993920
+        },
+        "/dev/mapper/cinder--volumes-cinder--volumes--pool_tdata": {
+            "size": "1.55 TiB",
+            "size_bytes": 1709094993920
+        },
+        "/dev/mapper/cinder--volumes-cinder--volumes--pool_tmeta": {
+            "size": "100.00 MiB",
+            "size_bytes": 104857600
+        },
         "/dev/mapper/cs-root": {
             "filesystem": "xfs",
             "size": "2.45 TiB",
@@ -1500,6 +1730,12 @@
             "size": "2.45 TiB",
             "size_bytes": 2696876654592,
             "uuid": "X1HkVO-JdVj-UT8U-GhYf-Gfda-dZnL-SFCETu"
+        },
+        "/dev/sdd1": {
+            "filesystem": "ext4",
+            "size": "114.60 GiB",
+            "size_bytes": 123048280064,
+            "uuid": "d1083e3d-0d19-41f3-bfbf-9717905db78e"
         }
     },
     "facter_path": "/sbin:/bin:/usr/sbin:/usr/bin",
@@ -1571,9 +1807,9 @@
     },
     "facter_system_uptime": {
         "days": 0,
-        "hours": 5,
-        "seconds": 20983,
-        "uptime": "5:49 hours"
+        "hours": 1,
+        "seconds": 3754,
+        "uptime": "1:02 hours"
     },
     "facter_timezone": "CEST",
     "facter_virtual": "physical",
@@ -2255,6 +2491,12 @@
                 "enabled": 1
             }
         },
+        "flatpak": {
+            "200": {
+                "checksum": "sha256:69ae1d923a345626743a6197af93883b6faf2aefc53da27a71679c605aaa40b1",
+                "enabled": 1
+            }
+        },
         "fprintd": {
             "100": {
                 "checksum": "sha256:651a0158d860694e2f7e3c2ff5842cb1167edd212f207d25fbd048cc0bca8b1e",
@@ -2735,6 +2977,12 @@
                 "enabled": 1
             }
         },
+        "mariadb-server-galera": {
+            "400": {
+                "checksum": "sha256:fa20ad7b667bbeab4c3a604de44c8c572cf88f83e555fc1530ead6ec21126302",
+                "enabled": 1
+            }
+        },
         "mcelog": {
             "100": {
                 "checksum": "sha256:48343f6df53f591eff2c6a76bfbf12f351daa9e382785fb47e1017cd7badab91",
@@ -2750,6 +2998,10 @@
         "memcached": {
             "100": {
                 "checksum": "sha256:03335203d0a113eead2d95a159df467fc164d12cc1c9ce4b58149da7b80d7943",
+                "enabled": 1
+            },
+            "200": {
+                "checksum": "sha256:d76001d8701a47928b6afc939f8012663573905d0ce045447e13050fdc101e7a",
                 "enabled": 1
             }
         },
@@ -2882,6 +3134,10 @@
         "mysql": {
             "100": {
                 "checksum": "sha256:5513598214e4ac4737a0f73a4349d8f786334d62ca92ea0099a91d89f5717103",
+                "enabled": 1
+            },
+            "200": {
+                "checksum": "sha256:52e21d19ef62cc0e6e975c28b8a9d49cf12e84bd0cce4cca438c0d362fa0985a",
                 "enabled": 1
             }
         },
@@ -3083,6 +3339,12 @@
                 "enabled": 1
             }
         },
+        "openvswitch-custom": {
+            "400": {
+                "checksum": "sha256:45cbbe4c571cdce6b8a718a02de3b670c09e10aeba5651724d855084bd15903a",
+                "enabled": 1
+            }
+        },
         "openwsman": {
             "100": {
                 "checksum": "sha256:42155472938e6b25076cda306a0c176db03ae2722597fd4004380b5222589b67",
@@ -3092,6 +3354,174 @@
         "oracleasm": {
             "100": {
                 "checksum": "sha256:f47fdeba48ebedde1b490b598cb46fd8b30d4e86264f7f3ce68bd2af91409792",
+                "enabled": 1
+            }
+        },
+        "os-barbican": {
+            "400": {
+                "checksum": "sha256:a9abc63af179e1d5861a808d532819371a0eb61748091331bbb3c317a958c20f",
+                "enabled": 1
+            }
+        },
+        "os-ceilometer": {
+            "400": {
+                "checksum": "sha256:fd229e389125287a1861031cc01122237850fa64cbe740f34e4526a1ad543215",
+                "enabled": 1
+            }
+        },
+        "os-certmonger": {
+            "400": {
+                "checksum": "sha256:71e416be294f31dd76db97d176f52c91450416a008d237e2acafd1429f9b1abe",
+                "enabled": 1
+            }
+        },
+        "os-cinder": {
+            "400": {
+                "checksum": "sha256:5e97ab811da71d2722e81eacd3ded2c4c0c1ca73266101484165986a7ee834c0",
+                "enabled": 1
+            }
+        },
+        "os-collectd": {
+            "400": {
+                "checksum": "sha256:3809e70b216f131ec71506901289fc3c914208146edf596c5fa67c04dcda1787",
+                "enabled": 1
+            }
+        },
+        "os-dnsmasq": {
+            "400": {
+                "checksum": "sha256:a0f2a908a918a37e92220ca07905d70869a63b68dee18a7539450465d9f74320",
+                "enabled": 1
+            }
+        },
+        "os-glance": {
+            "400": {
+                "checksum": "sha256:1a0e57ad250daead1ab201e8df931cd5b14aaeba4b8f741ccccd5744d2cc2bf8",
+                "enabled": 1
+            }
+        },
+        "os-gnocchi": {
+            "400": {
+                "checksum": "sha256:a08e9480bcb5da42f728e6b8ef41ff5161f1a6232c8c77de13d1a1987f8b5055",
+                "enabled": 1
+            }
+        },
+        "os-haproxy": {
+            "400": {
+                "checksum": "sha256:3a0bc77709079f6925ec02df14d43d2166928bf7f056e01ed12c5ad3c357b4d9",
+                "enabled": 1
+            }
+        },
+        "os-httpd": {
+            "400": {
+                "checksum": "sha256:13770bff72c07f9406ebfb52f790bf27e21fc272a02d6188d77ea343940aaa78",
+                "enabled": 1
+            }
+        },
+        "os-ipxe": {
+            "400": {
+                "checksum": "sha256:9fbce0919f8a30f54910889e0c941083b13d555168308276b7306b7569ea2a26",
+                "enabled": 1
+            }
+        },
+        "os-keepalived": {
+            "400": {
+                "checksum": "sha256:d558deaa8cf8b61d47800f04fc82887dbe5e49cf8d90018a1a9cf8421b47276d",
+                "enabled": 1
+            }
+        },
+        "os-keystone": {
+            "400": {
+                "checksum": "sha256:7beb1c87e6bcbe23cca2690366c9ef3e26eec322ef8c790f2cd8536cd08e51f4",
+                "enabled": 1
+            }
+        },
+        "os-logrotate": {
+            "400": {
+                "checksum": "sha256:3a0093865349065e0c83f4b84d2907e2f351a3a521c8217893c30c5df15a457a",
+                "enabled": 1
+            }
+        },
+        "os-mysql": {
+            "400": {
+                "checksum": "sha256:61ed27ab1f9d3328b45d3da34ea3699c6d9025dcda29e49fe2b37476a1090ef8",
+                "enabled": 1
+            }
+        },
+        "os-neutron": {
+            "400": {
+                "checksum": "sha256:a7ab1604fcfb8b8212efdfc4e339148c671197ff9a2e39d06dbda6d3de2f2ebb",
+                "enabled": 1
+            }
+        },
+        "os-nova": {
+            "400": {
+                "checksum": "sha256:cd982f5348ef35770d639a05182762ba253cd5a0823df9c6f3261f6248cd3f02",
+                "enabled": 1
+            }
+        },
+        "os-octavia": {
+            "400": {
+                "checksum": "sha256:96d1ec0281d0f72f150f2e7fe853b86087ba2f043794e85d936c0d3d4eff8921",
+                "enabled": 1
+            }
+        },
+        "os-ovs": {
+            "400": {
+                "checksum": "sha256:2cff9c772e0b2dc67b4c6fbb59cb8aa144f5308cf2bfbef77bcb9781f5c99509",
+                "enabled": 1
+            }
+        },
+        "os-ovs-el9": {
+            "400": {
+                "checksum": "sha256:dbb10ae2b54c5c1e1695e61dac72ac7a084f0d2c46d9d0ea0d211abf4177d27e",
+                "enabled": 1
+            }
+        },
+        "os-podman": {
+            "400": {
+                "checksum": "sha256:b5f66acf187ed3f556cf854b8bb354f3dfc97dbb736dfce5f86b1a35522db6f1",
+                "enabled": 1
+            }
+        },
+        "os-rabbitmq": {
+            "400": {
+                "checksum": "sha256:3fced16589fa2916ec44dcf109eec81011f51932c4dbef5e66f0d9612625aef1",
+                "enabled": 1
+            }
+        },
+        "os-redis": {
+            "400": {
+                "checksum": "sha256:1de1dac81bba20cca4a5907057dd231798337b481317dda1e164ac0cafa88852",
+                "enabled": 1
+            }
+        },
+        "os-rsync": {
+            "400": {
+                "checksum": "sha256:0eba6f11deb7a53e794a2ec6dee7877b7b4547861f845b5c087110867f291f93",
+                "enabled": 1
+            }
+        },
+        "os-rsyslog": {
+            "400": {
+                "checksum": "sha256:6f8ceab21e1fbcc1843d281c1ce17ee167cd50aee801ea1cdd7dedf010f25537",
+                "enabled": 1
+            }
+        },
+        "os-swift": {
+            "400": {
+                "checksum": "sha256:368aaac8213e238a6f7b369361fa8b1acf7845d941784bfbb1be1fb481f00c05",
+                "enabled": 1
+            }
+        },
+        "os-timemaster": {
+            "400": {
+                "checksum": "sha256:fdead601ff5065deb055a4009578f3dfcaf66b4fb6af40e70497cd0109cefc9e",
+                "enabled": 1
+            }
+        },
+        "os-virt": {
+            "400": {
+                "checksum": "sha256:1512efbf32925172f422f71aeffbd04b76bd1e5402ec8ac4ccc775f8c0b1b181",
                 "enabled": 1
             }
         },
@@ -4274,6 +4704,12 @@
             "state": "inactive",
             "status": "disabled"
         },
+        "arptables.service": {
+            "name": "arptables.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
         "atd.service": {
             "name": "atd.service",
             "source": "systemd",
@@ -4327,6 +4763,24 @@
             "source": "systemd",
             "state": "inactive",
             "status": "enabled"
+        },
+        "canberra-system-bootup.service": {
+            "name": "canberra-system-bootup.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "canberra-system-shutdown-reboot.service": {
+            "name": "canberra-system-shutdown-reboot.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "canberra-system-shutdown.service": {
+            "name": "canberra-system-shutdown.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
         },
         "chrony-wait.service": {
             "name": "chrony-wait.service",
@@ -4399,6 +4853,12 @@
             "source": "systemd",
             "state": "inactive",
             "status": "static"
+        },
+        "conntrackd.service": {
+            "name": "conntrackd.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
         },
         "console-getty.service": {
             "name": "console-getty.service",
@@ -4499,7 +4959,7 @@
         "dm-event.service": {
             "name": "dm-event.service",
             "source": "systemd",
-            "state": "stopped",
+            "state": "running",
             "status": "static"
         },
         "dnf-makecache.service": {
@@ -4580,11 +5040,29 @@
             "state": "stopped",
             "status": "static"
         },
+        "ebtables.service": {
+            "name": "ebtables.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
         "emergency.service": {
             "name": "emergency.service",
             "source": "systemd",
             "state": "stopped",
             "status": "static"
+        },
+        "epmd.service": {
+            "name": "epmd.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "disabled"
+        },
+        "epmd@.service": {
+            "name": "epmd@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
         },
         "fcoe.service": {
             "name": "fcoe.service",
@@ -4597,6 +5075,12 @@
             "source": "systemd",
             "state": "inactive",
             "status": "disabled"
+        },
+        "flatpak-system-helper.service": {
+            "name": "flatpak-system-helper.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "static"
         },
         "fprintd.service": {
             "name": "fprintd.service",
@@ -4628,6 +5112,18 @@
             "state": "inactive",
             "status": "static"
         },
+        "garbd.service": {
+            "name": "garbd.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "geoclue.service": {
+            "name": "geoclue.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "static"
+        },
         "getty@.service": {
             "name": "getty@.service",
             "source": "systemd",
@@ -4639,6 +5135,24 @@
             "source": "systemd",
             "state": "running",
             "status": "active"
+        },
+        "gnocchi-api.service": {
+            "name": "gnocchi-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "gnocchi-metricd.service": {
+            "name": "gnocchi-metricd.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "gnocchi-statsd.service": {
+            "name": "gnocchi-statsd.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
         },
         "grub-boot-indeterminate.service": {
             "name": "grub-boot-indeterminate.service",
@@ -4657,6 +5171,42 @@
             "source": "systemd",
             "state": "running",
             "status": "disabled"
+        },
+        "haproxy.service": {
+            "name": "haproxy.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "htcacheclean.service": {
+            "name": "htcacheclean.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "httpd-init.service": {
+            "name": "httpd-init.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "not-found"
+        },
+        "httpd.service": {
+            "name": "httpd.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "httpd@.service": {
+            "name": "httpd@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "import-state.service": {
+            "name": "import-state.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
         },
         "initrd-cleanup.service": {
             "name": "initrd-cleanup.service",
@@ -4682,6 +5232,12 @@
             "state": "stopped",
             "status": "static"
         },
+        "ip6tables.service": {
+            "name": "ip6tables.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
         "iprdump.service": {
             "name": "iprdump.service",
             "source": "systemd",
@@ -4699,6 +5255,12 @@
             "source": "systemd",
             "state": "inactive",
             "status": "disabled"
+        },
+        "iptables.service": {
+            "name": "iptables.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
         },
         "irqbalance.service": {
             "name": "irqbalance.service",
@@ -4739,8 +5301,8 @@
         "iscsid.service": {
             "name": "iscsid.service",
             "source": "systemd",
-            "state": "stopped",
-            "status": "disabled"
+            "state": "running",
+            "status": "enabled"
         },
         "iscsiuio.service": {
             "name": "iscsiuio.service",
@@ -4753,6 +5315,12 @@
             "source": "systemd",
             "state": "stopped",
             "status": "enabled"
+        },
+        "keepalived.service": {
+            "name": "keepalived.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
         },
         "kmod-static-nodes.service": {
             "name": "kmod-static-nodes.service",
@@ -4802,11 +5370,23 @@
             "state": "stopped",
             "status": "disabled"
         },
+        "loadmodules.service": {
+            "name": "loadmodules.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
         "logrotate.service": {
             "name": "logrotate.service",
             "source": "systemd",
             "state": "stopped",
             "status": "static"
+        },
+        "low-memory-monitor.service": {
+            "name": "low-memory-monitor.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
         },
         "lvm-devices-import.service": {
             "name": "lvm-devices-import.service",
@@ -4842,6 +5422,18 @@
             "name": "man-db-restart-cache-update.service",
             "source": "systemd",
             "state": "inactive",
+            "status": "disabled"
+        },
+        "mariadb.service": {
+            "name": "mariadb.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "mariadb@.service": {
+            "name": "mariadb@.service",
+            "source": "systemd",
+            "state": "unknown",
             "status": "disabled"
         },
         "mcelog.service": {
@@ -4892,6 +5484,12 @@
             "state": "stopped",
             "status": "enabled"
         },
+        "memcached.service": {
+            "name": "memcached.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
         "microcode.service": {
             "name": "microcode.service",
             "source": "systemd",
@@ -4940,6 +5538,18 @@
             "state": "stopped",
             "status": "enabled"
         },
+        "mysql.service": {
+            "name": "mysql.service",
+            "source": "systemd",
+            "state": "active",
+            "status": "alias"
+        },
+        "mysqld.service": {
+            "name": "mysqld.service",
+            "source": "systemd",
+            "state": "active",
+            "status": "alias"
+        },
         "ndctl-monitor.service": {
             "name": "ndctl-monitor.service",
             "source": "systemd",
@@ -4958,11 +5568,53 @@
             "state": "inactive",
             "status": "disabled"
         },
+        "network": {
+            "name": "network",
+            "source": "sysv",
+            "state": "running",
+            "status": "disabled"
+        },
         "network.service": {
             "name": "network.service",
             "source": "systemd",
             "state": "stopped",
-            "status": "not-found"
+            "status": "generated"
+        },
+        "neutron-dhcp-agent.service": {
+            "name": "neutron-dhcp-agent.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "neutron-l3-agent.service": {
+            "name": "neutron-l3-agent.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "neutron-metadata-agent.service": {
+            "name": "neutron-metadata-agent.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "neutron-netns-cleanup.service": {
+            "name": "neutron-netns-cleanup.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "neutron-ovs-cleanup.service": {
+            "name": "neutron-ovs-cleanup.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "neutron-server.service": {
+            "name": "neutron-server.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
         },
         "nfs-blkmap.service": {
             "name": "nfs-blkmap.service",
@@ -5003,8 +5655,8 @@
         "nftables.service": {
             "name": "nftables.service",
             "source": "systemd",
-            "state": "inactive",
-            "status": "disabled"
+            "state": "stopped",
+            "status": "enabled"
         },
         "nis-domainname.service": {
             "name": "nis-domainname.service",
@@ -5042,6 +5694,12 @@
             "state": "stopped",
             "status": "enabled"
         },
+        "nvmet.service": {
+            "name": "nvmet.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
         "nvmf-autoconnect.service": {
             "name": "nvmf-autoconnect.service",
             "source": "systemd",
@@ -5058,6 +5716,354 @@
             "name": "nvmf-connect@.service",
             "source": "systemd",
             "state": "unknown",
+            "status": "static"
+        },
+        "openstack-aodh-api.service": {
+            "name": "openstack-aodh-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-aodh-evaluator.service": {
+            "name": "openstack-aodh-evaluator.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-aodh-listener.service": {
+            "name": "openstack-aodh-listener.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-aodh-notifier.service": {
+            "name": "openstack-aodh-notifier.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-ceilometer-notification.service": {
+            "name": "openstack-ceilometer-notification.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-ceilometer-polling.service": {
+            "name": "openstack-ceilometer-polling.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-cinder-api.service": {
+            "name": "openstack-cinder-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-cinder-backup.service": {
+            "name": "openstack-cinder-backup.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
+        "openstack-cinder-scheduler.service": {
+            "name": "openstack-cinder-scheduler.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
+        "openstack-cinder-volume.service": {
+            "name": "openstack-cinder-volume.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-glance-api.service": {
+            "name": "openstack-glance-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-glance-scrubber.service": {
+            "name": "openstack-glance-scrubber.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-gnocchi-api.service": {
+            "name": "openstack-gnocchi-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "alias"
+        },
+        "openstack-gnocchi-metricd.service": {
+            "name": "openstack-gnocchi-metricd.service",
+            "source": "systemd",
+            "state": "active",
+            "status": "alias"
+        },
+        "openstack-gnocchi-statsd.service": {
+            "name": "openstack-gnocchi-statsd.service",
+            "source": "systemd",
+            "state": "active",
+            "status": "alias"
+        },
+        "openstack-nova-api.service": {
+            "name": "openstack-nova-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-nova-conductor.service": {
+            "name": "openstack-nova-conductor.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-nova-metadata-api.service": {
+            "name": "openstack-nova-metadata-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-nova-novncproxy.service": {
+            "name": "openstack-nova-novncproxy.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-nova-os-compute-api.service": {
+            "name": "openstack-nova-os-compute-api.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-nova-scheduler.service": {
+            "name": "openstack-nova-scheduler.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-account-auditor.service": {
+            "name": "openstack-swift-account-auditor.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-account-auditor@.service": {
+            "name": "openstack-swift-account-auditor@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-account-reaper.service": {
+            "name": "openstack-swift-account-reaper.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-account-reaper@.service": {
+            "name": "openstack-swift-account-reaper@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-account-replicator.service": {
+            "name": "openstack-swift-account-replicator.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-account-replicator@.service": {
+            "name": "openstack-swift-account-replicator@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-account.service": {
+            "name": "openstack-swift-account.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-account@.service": {
+            "name": "openstack-swift-account@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-container-auditor.service": {
+            "name": "openstack-swift-container-auditor.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-container-auditor@.service": {
+            "name": "openstack-swift-container-auditor@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-container-reconciler.service": {
+            "name": "openstack-swift-container-reconciler.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "openstack-swift-container-replicator.service": {
+            "name": "openstack-swift-container-replicator.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-container-replicator@.service": {
+            "name": "openstack-swift-container-replicator@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-container-sharder.service": {
+            "name": "openstack-swift-container-sharder.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-container-sync.service": {
+            "name": "openstack-swift-container-sync.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-container-sync@.service": {
+            "name": "openstack-swift-container-sync@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-container-updater.service": {
+            "name": "openstack-swift-container-updater.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-container-updater@.service": {
+            "name": "openstack-swift-container-updater@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-container.service": {
+            "name": "openstack-swift-container.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-container@.service": {
+            "name": "openstack-swift-container@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-object-auditor.service": {
+            "name": "openstack-swift-object-auditor.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-object-auditor@.service": {
+            "name": "openstack-swift-object-auditor@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-object-expirer.service": {
+            "name": "openstack-swift-object-expirer.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-object-reconstructor.service": {
+            "name": "openstack-swift-object-reconstructor.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-object-reconstructor@.service": {
+            "name": "openstack-swift-object-reconstructor@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-object-replicator.service": {
+            "name": "openstack-swift-object-replicator.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-object-replicator@.service": {
+            "name": "openstack-swift-object-replicator@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-object-updater.service": {
+            "name": "openstack-swift-object-updater.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-object-updater@.service": {
+            "name": "openstack-swift-object-updater@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-object.service": {
+            "name": "openstack-swift-object.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openstack-swift-object@.service": {
+            "name": "openstack-swift-object@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "disabled"
+        },
+        "openstack-swift-proxy.service": {
+            "name": "openstack-swift-proxy.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "openvswitch.service": {
+            "name": "openvswitch.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
+        "ovn-northd.service": {
+            "name": "ovn-northd.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
+        "ovs-delete-transient-ports.service": {
+            "name": "ovs-delete-transient-ports.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "static"
+        },
+        "ovs-vswitchd.service": {
+            "name": "ovs-vswitchd.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "static"
+        },
+        "ovsdb-server.service": {
+            "name": "ovsdb-server.service",
+            "source": "systemd",
+            "state": "running",
             "status": "static"
         },
         "packagekit-offline-update.service": {
@@ -5210,6 +6216,18 @@
             "state": "inactive",
             "status": "static"
         },
+        "rabbitmq-server.service": {
+            "name": "rabbitmq-server.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "radvd.service": {
+            "name": "radvd.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
         "raid-check.service": {
             "name": "raid-check.service",
             "source": "systemd",
@@ -5239,6 +6257,18 @@
             "source": "systemd",
             "state": "inactive",
             "status": "static"
+        },
+        "redis-sentinel.service": {
+            "name": "redis-sentinel.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
+        "redis.service": {
+            "name": "redis.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
         },
         "rescue.service": {
             "name": "rescue.service",
@@ -5282,10 +6312,28 @@
             "state": "inactive",
             "status": "disabled"
         },
+        "rsyncd.service": {
+            "name": "rsyncd.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "enabled"
+        },
+        "rsyncd@.service": {
+            "name": "rsyncd@.service",
+            "source": "systemd",
+            "state": "unknown",
+            "status": "static"
+        },
         "rsyslog.service": {
             "name": "rsyslog.service",
             "source": "systemd",
             "state": "running",
+            "status": "enabled"
+        },
+        "rtkit-daemon.service": {
+            "name": "rtkit-daemon.service",
+            "source": "systemd",
+            "state": "stopped",
             "status": "enabled"
         },
         "selinux-autorelabel-mark.service": {
@@ -5441,7 +6489,7 @@
         "stratisd.service": {
             "name": "stratisd.service",
             "source": "systemd",
-            "state": "stopped",
+            "state": "running",
             "status": "enabled"
         },
         "syslog.service": {
@@ -5894,6 +6942,18 @@
             "state": "inactive",
             "status": "static"
         },
+        "target.service": {
+            "name": "target.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
+        "targetclid.service": {
+            "name": "targetclid.service",
+            "source": "systemd",
+            "state": "inactive",
+            "status": "disabled"
+        },
         "teamd@.service": {
             "name": "teamd@.service",
             "source": "systemd",
@@ -5930,11 +6990,23 @@
             "state": "stopped",
             "status": "static"
         },
+        "upower.service": {
+            "name": "upower.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "enabled"
+        },
         "user-runtime-dir@.service": {
             "name": "user-runtime-dir@.service",
             "source": "systemd",
             "state": "unknown",
             "status": "static"
+        },
+        "user-runtime-dir@0.service": {
+            "name": "user-runtime-dir@0.service",
+            "source": "systemd",
+            "state": "stopped",
+            "status": "active"
         },
         "user-runtime-dir@1000.service": {
             "name": "user-runtime-dir@1000.service",
@@ -5947,6 +7019,12 @@
             "source": "systemd",
             "state": "unknown",
             "status": "static"
+        },
+        "user@0.service": {
+            "name": "user@0.service",
+            "source": "systemd",
+            "state": "running",
+            "status": "active"
         },
         "user@1000.service": {
             "name": "user@1000.service",
@@ -6005,7 +7083,7 @@
         "virtqemud.service": {
             "name": "virtqemud.service",
             "source": "systemd",
-            "state": "stopped",
+            "state": "running",
             "status": "enabled"
         },
         "virtsecretd.service": {

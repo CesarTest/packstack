@@ -3,13 +3,15 @@
 - hosts: "openstack" 
   become: "true"
   tasks:
-    - name: "Prepare Server" 
+    - name: "Prepare Repositories" 
+      include_tasks: "{{ ansible_distribution }}.yml"
+    - name: "Prepare Server"
       include_tasks: "prepare.yml"
 
 # --- Provision
 - hosts: "openstack" 
   become: "true"
   roles:
-    #- role: fedora.linux_system_roles.selinux
-    #- role: fedora.linux_system_roles.storage
-    - role: cdg.openstack
+    - role: fedora.linux_system_roles.selinux
+    - role: fedora.linux_system_roles.storage
+    - role: cdg.packstack

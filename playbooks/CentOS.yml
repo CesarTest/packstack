@@ -1,0 +1,16 @@
+# ---> Repos
+- name: Install Centos Repos
+  ansible.builtin.dnf:
+    name:  "{{package.name   | default('') }}"
+    state: "{{package.state | default('present') }}"
+  loop: "{{ server_repositories | default([])}}"
+  loop_control:
+    loop_var: "package"
+    
+- name: Enable Centos Repos
+  community.general.dnf_config_manager:
+    name:  "{{repo.name   | default('') }}"
+    state: "{{repo.state | default('present') }}"
+  loop: "{{ server_dnf_config_manager | default([])}}"
+  loop_control:
+    loop_var: "repo"        
