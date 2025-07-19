@@ -13,12 +13,14 @@
   register: "login"
 
 - name: Install OpenStack
-  include_tasks: install.yml 
-  when:
-    - "login is defined"
-    - "login.status is defined"
-    - "login.status != 302"
+  include_tasks: install.yml
+  vars:
+    login_defined:   "{{ login is defined | default(false) }}"
+    login_status:    "{{ login.status     | default('') }}"
+    login_status_ok: "{{ login_status == '302' }}"
+    packstack_installed: "{{ (login_defined == false) or ((login_defined== true) and (login_status_ok==true))  }}"
+  when: 
+    - "not packstack_installed|bool"
 
 - name: Wait for installation to finish
   include_tasks: test.yml
-

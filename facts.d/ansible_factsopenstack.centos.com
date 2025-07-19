@@ -37,17 +37,17 @@
     "ansible_date_time": {
         "date": "2025-07-19",
         "day": "19",
-        "epoch": "1752910833",
-        "epoch_int": "1752910833",
-        "hour": "09",
-        "iso8601": "2025-07-19T07:40:33Z",
-        "iso8601_basic": "20250719T094033994406",
-        "iso8601_basic_short": "20250719T094033",
-        "iso8601_micro": "2025-07-19T07:40:33.994406Z",
-        "minute": "40",
+        "epoch": "1752914208",
+        "epoch_int": "1752914208",
+        "hour": "10",
+        "iso8601": "2025-07-19T08:36:48Z",
+        "iso8601_basic": "20250719T103648608680",
+        "iso8601_basic_short": "20250719T103648",
+        "iso8601_micro": "2025-07-19T08:36:48.608680Z",
+        "minute": "36",
         "month": "07",
-        "second": "33",
-        "time": "09:40:33",
+        "second": "48",
+        "time": "10:36:48",
         "tz": "CEST",
         "tz_dst": "CEST",
         "tz_offset": "+0200",
@@ -915,7 +915,7 @@
         "PWD": "/home/ansible",
         "SHELL": "/bin/bash",
         "SHLVL": "0",
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-piytczzaihusclzodireqhcvwrwftojd ; /usr/bin/python3",
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-jqzkldqxorqxlqwzfqsvzgqtrkqjqoqv ; /usr/bin/python3",
         "SUDO_GID": "1000",
         "SUDO_UID": "1000",
         "SUDO_USER": "ansible",
@@ -1021,12 +1021,12 @@
         "type": "ether"
     },
     "ansible_interfaces": [
+        "eno3",
         "idrac",
-        "eno1",
-        "eno2",
         "lo",
-        "eno4",
-        "eno3"
+        "eno2",
+        "eno1",
+        "eno4"
     ],
     "ansible_is_chroot": false,
     "ansible_iscsi_iqn": "iqn.1994-05.com.redhat:9b63c93754bf",
@@ -1120,9 +1120,9 @@
         "type": "loopback"
     },
     "ansible_loadavg": {
-        "15m": 3.34,
-        "1m": 3.73,
-        "5m": 3.39
+        "15m": 3.53,
+        "1m": 3.54,
+        "5m": 3.55
     },
     "ansible_local": {},
     "ansible_locally_reachable_ips": {
@@ -1188,16 +1188,16 @@
     },
     "ansible_machine": "x86_64",
     "ansible_machine_id": "da2a6bf849d349f1a69c18697671a159",
-    "ansible_memfree_mb": 97409,
+    "ansible_memfree_mb": 96631,
     "ansible_memory_mb": {
         "nocache": {
-            "free": 99000,
-            "used": 13097
+            "free": 98698,
+            "used": 13399
         },
         "real": {
-            "free": 97409,
+            "free": 96631,
             "total": 112097,
-            "used": 14688
+            "used": 15466
         },
         "swap": {
             "cached": 0,
@@ -1209,10 +1209,10 @@
     "ansible_memtotal_mb": 112097,
     "ansible_mounts": [
         {
-            "block_available": 648618190,
+            "block_available": 648502635,
             "block_size": 4096,
             "block_total": 657047084,
-            "block_used": 8428894,
+            "block_used": 8544449,
             "device": "/dev/mapper/cs-root",
             "fstype": "xfs",
             "inode_available": 262738086,
@@ -1220,7 +1220,7 @@
             "inode_used": 209114,
             "mount": "/",
             "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
-            "size_available": 2656740106240,
+            "size_available": 2656266792960,
             "size_total": 2691264856064,
             "uuid": "79ced7a6-6fea-4c5d-a705-9fc0ecb2a5fb"
         },
@@ -1415,7 +1415,7 @@
     "ansible_system_capabilities": [],
     "ansible_system_capabilities_enforced": "False",
     "ansible_system_vendor": "NA",
-    "ansible_uptime_seconds": 4217,
+    "ansible_uptime_seconds": 7591,
     "ansible_user_dir": "/root",
     "ansible_user_gecos": "root",
     "ansible_user_gid": 0,
@@ -1512,9 +1512,9 @@
     "facter_kernelrelease": "5.14.0-598.el9.x86_64",
     "facter_kernelversion": "5.14.0",
     "facter_load_averages": {
-        "15m": 3.34,
-        "1m": 3.73,
-        "5m": 3.39
+        "15m": 3.54,
+        "1m": 3.59,
+        "5m": 3.56
     },
     "facter_memory": {
         "swap": {
@@ -1527,13 +1527,13 @@
             "used_bytes": 0
         },
         "system": {
-            "available": "95.65 GiB",
-            "available_bytes": 102700187648,
-            "capacity": "12.63%",
+            "available": "95.14 GiB",
+            "available_bytes": 102154772480,
+            "capacity": "13.09%",
             "total": "109.47 GiB",
             "total_bytes": 117542494208,
-            "used": "13.82 GiB",
-            "used_bytes": 14842306560
+            "used": "14.33 GiB",
+            "used_bytes": 15387721728
         }
     },
     "facter_networking": {
@@ -1770,7 +1770,7 @@
             "Intel(R) Xeon(R) CPU E5-2630L v2 @ 2.40GHz"
         ],
         "physicalcount": 2,
-        "speed": "2.60 GHz",
+        "speed": "2.62 GHz",
         "threads": 2
     },
     "facter_puppetversion": "7.27.0",
@@ -1807,9 +1807,9 @@
     },
     "facter_system_uptime": {
         "days": 0,
-        "hours": 1,
-        "seconds": 4219,
-        "uptime": "1:10 hours"
+        "hours": 2,
+        "seconds": 7588,
+        "uptime": "2:06 hours"
     },
     "facter_timezone": "CEST",
     "facter_virtual": "physical",
@@ -4884,12 +4884,6 @@
             "state": "running",
             "status": "enabled"
         },
-        "dbus-:1.2-org.fedoraproject.SetroubleshootPrivileged@70.service": {
-            "name": "dbus-:1.2-org.fedoraproject.SetroubleshootPrivileged@70.service",
-            "source": "systemd",
-            "state": "running",
-            "status": "transient"
-        },
         "dbus-broker.service": {
             "name": "dbus-broker.service",
             "source": "systemd",
@@ -6369,7 +6363,7 @@
         "setroubleshootd.service": {
             "name": "setroubleshootd.service",
             "source": "systemd",
-            "state": "running",
+            "state": "activating",
             "status": "static"
         },
         "smartd.service": {

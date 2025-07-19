@@ -12,6 +12,6 @@
 - hosts: "openstack" 
   become: "true"
   roles:
-    - role: fedora.linux_system_roles.selinux
-    - role: fedora.linux_system_roles.storage
+    #- role: fedora.linux_system_roles.selinux
+    #- role: fedora.linux_system_roles.storage
     - role: cdg.packstack
