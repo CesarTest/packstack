@@ -10,14 +10,14 @@
     - [ password, "{{packstack_options.defaults.password|default('')}}" ]
     - [ enter, 'Sign in' ]
     status_code: "302"
-  register: "_login"
+  register: "login"
 
 - name: Install OpenStack
   include_tasks: install.yml 
   when:
     - "login is defined"
     - "login.status is defined"
-    - "login.status == 302"
+    - "login.status != 302"
 
 - name: Wait for installation to finish
   include_tasks: test.yml
