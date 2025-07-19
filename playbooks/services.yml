@@ -3,9 +3,9 @@
 - hosts: "openstack" 
   become: "true"
   tasks:
-    - name: "Prepare Repositories" 
+    - name: "Prepare Repos"
       include_tasks: "{{ ansible_distribution }}.yml"
-    - name: "Prepare Server"
+    - name: "Prepare Server" 
       include_tasks: "prepare.yml"
 
 # --- Provision
